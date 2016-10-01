@@ -121,12 +121,27 @@
     <value>Address must start with a number.</value>
   </data>
   <data name="Cost" xml:space="preserve">
-    <value>Total for your order is {0:C2} is that ok?</value>
+    <value>Total for your order is {0} is that ok?</value>
+  </data>
+  <data name="KindOf" xml:space="preserve">
+    <value>What kind of drink would you like? {||}</value>
+  </data>
+  <data name="Processed" xml:space="preserve">
+    <value>Processed your order !</value>
   </data>
   <data name="Processing" xml:space="preserve">
-    <value>We are currently processing your coffee. We will message you the status.</value>
+    <value>We are currently processing your order. We will message you the status.</value>
   </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Welcome to the coffee order bot!</value>
+  <data name="RepeartOrderPart2" xml:space="preserve">
+    <value>with {[{Sugar} {Toppings}]}</value>
+  </data>
+  <data name="RepeatOrderPart1" xml:space="preserve">
+    <value>Do you want to order your {Temperature} {Size} {Coffee} </value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Thanks {Name} for ordering a drink at Stardust !</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome to Stardust !</value>
   </data>
 </root>

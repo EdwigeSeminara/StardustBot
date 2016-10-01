@@ -38,7 +38,7 @@ namespace StardustBot
     public enum ToppingOptions
     {
         [Terms("except", "but", "not", "no", "all", "everything")]
-        Cream, Milk, Vanilla, Chocolate, Caramel, Everything
+        Cream=1, Milk, Vanilla, Chocolate, Caramel, Everything
     };
 
     [Serializable]
@@ -82,6 +82,7 @@ namespace StardustBot
         [Describe("your experience today")]
         public double? Rating;
 
+        public static double total;
 
         public static IForm<JObject> BuildJsonForm()
         {
@@ -109,7 +110,7 @@ namespace StardustBot
                 };
 
                 var builder = new FormBuilder<StardustOrder>()
-                        .Message(DynamicStardust.WelcomeMessage)
+                        .Message(DynamicStardust.Welcome)
                         .Field(nameof(Coffee))
                         .Field(nameof(Temperature))
                         .Field(nameof(Size))
@@ -147,20 +148,22 @@ namespace StardustBot
                                 case SizeOptions.Long: cost = 6.49; break;
                                 case SizeOptions.Big: cost = 8.99; break;
                             }
-                            return new PromptAttribute($"Total for your coffee is {cost:C2} is that ok?");
+                            total = cost;
+                            string message = string.Format(DynamicStardust.Cost, $"{total:C2}");
+                            return new PromptAttribute(message);
                         })
                         .Confirm(async (state) =>
                         {
-                            string customMessage = "Do you want to order your {Temperature} {Size} {Coffee} ";
+                            string customMessage = DynamicStardust.RepeartOrderPart1;
                             if (state.Sugar != null || state.Toppings != null)
                             {
-                                customMessage = string.Concat(customMessage, "with {[{Sugar} {Toppings}]} ");
+                                customMessage = string.Concat(customMessage, DynamicStardust.RepeartOrderPart2);
                             }
                             customMessage = string.Concat(customMessage, "?");
                             return new PromptAttribute(customMessage);
                         })
-                        //.AddRemainingFields() // Pour aller plus loin
-                        .Message("Thanks for ordering a coffee!")
+                        .AddRemainingFields()
+                        .Message(DynamicStardust.ThankYou)
                         .OnCompletion(processOrder);
 
                 builder.Configuration.DefaultPrompt.ChoiceStyle = ChoiceStyleOptions.Auto;

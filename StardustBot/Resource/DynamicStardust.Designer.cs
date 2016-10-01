@@ -70,7 +70,7 @@ namespace StardustBot.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total for your order is {0:C2} is that ok?.
+        ///   Looks up a localized string similar to Total for your order is {0} is that ok?.
         /// </summary>
         internal static string Cost {
             get {
@@ -79,7 +79,25 @@ namespace StardustBot.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to We are currently processing your coffee. We will message you the status..
+        ///   Looks up a localized string similar to What kind of drink would you like? {||}.
+        /// </summary>
+        internal static string KindOf {
+            get {
+                return ResourceManager.GetString("KindOf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Processed your order !.
+        /// </summary>
+        internal static string Processed {
+            get {
+                return ResourceManager.GetString("Processed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We are currently processing your order. We will message you the status..
         /// </summary>
         internal static string Processing {
             get {
@@ -88,11 +106,38 @@ namespace StardustBot.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to the coffee order bot!.
+        ///   Looks up a localized string similar to Do you want to order your {Temperature} {Size} {Coffee} .
         /// </summary>
-        internal static string WelcomeMessage {
+        internal static string RepeartOrderPart1 {
             get {
-                return ResourceManager.GetString("WelcomeMessage", resourceCulture);
+                return ResourceManager.GetString("RepeartOrderPart1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with {[{Sugar} {Toppings}]}.
+        /// </summary>
+        internal static string RepeartOrderPart2 {
+            get {
+                return ResourceManager.GetString("RepeartOrderPart2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thanks {Name} for ordering a drink at Stardust !.
+        /// </summary>
+        internal static string ThankYou {
+            get {
+                return ResourceManager.GetString("ThankYou", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to Stardust !.
+        /// </summary>
+        internal static string Welcome {
+            get {
+                return ResourceManager.GetString("Welcome", resourceCulture);
             }
         }
     }

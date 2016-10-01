@@ -121,12 +121,27 @@
     <value>L'adresse doit commerncer par un numéro</value>
   </data>
   <data name="Cost" xml:space="preserve">
-    <value>Le montant de votre commande est de  {0:C2} est-ce que cela vous convient ?</value>
+    <value>Le montant de votre commande est de {0} est-ce que cela vous convient ?</value>
+  </data>
+  <data name="KindOf" xml:space="preserve">
+    <value>Quel type de boissson vous ferait plaisir ? {||}</value>
+  </data>
+  <data name="Processed" xml:space="preserve">
+    <value>Votre commande est prête !</value>
   </data>
   <data name="Processing" xml:space="preserve">
     <value>Nous traitons votre commande. Vous recevrez une confirmation une fois votre commande préparée.</value>
   </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Bienvenue sur le bot de commande de café !</value>
+  <data name="RepeartOrderPart2" xml:space="preserve">
+    <value>avec {[{Sugar} {Toppings}]}</value>
+  </data>
+  <data name="RepeatOrderPart1" xml:space="preserve">
+    <value>Confirmez vous votre commande d'un {Temperature} {Size} {Coffee} </value>
+  </data>
+  <data name="ThankYou" xml:space="preserve">
+    <value>Merci {Name} d'avoir commandé votre boisson chez Stardust !</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bienvenue chez Stardust !</value>
   </data>
 </root>

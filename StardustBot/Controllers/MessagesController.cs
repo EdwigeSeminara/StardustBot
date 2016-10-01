@@ -8,6 +8,7 @@ using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using StardustBot.Resource;
 
 namespace StardustBot
 {
@@ -54,7 +55,7 @@ namespace StardustBot
                    {
                        var completed = await order;
                        // Actually process the coffee order...
-                       await context.PostAsync("Processed your order!");
+                       await context.PostAsync(DynamicStardust.Processed);
                    }
                    catch (FormCanceledException<StardustOrder> e)
                    {
@@ -83,7 +84,7 @@ namespace StardustBot
                     {
                         var completed = await order;
                         // Actually process the coffee order...
-                        await context.PostAsync("Processed your order!");
+                        await context.PostAsync(DynamicStardust.Processed);
                     }
                     catch (FormCanceledException<JObject> e)
                     {
