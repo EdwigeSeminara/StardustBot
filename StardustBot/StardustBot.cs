@@ -1,7 +1,7 @@
 ﻿using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.FormFlow.Json;
-using MiniHack.BotApplication.Resource;
+using StardustBot.Resource;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Concurrent;
@@ -44,7 +44,7 @@ namespace StardustBot
     [Serializable]
     [Template(TemplateUsage.NotUnderstood, "I do not understand \"{0}\".", "Try again, I don't get \"{0}\".")]
     [Template(TemplateUsage.EnumSelectOne, "What kind of {&} would you like on your coffee? {||}", ChoiceStyle = ChoiceStyleOptions.Buttons)]
-    public class CoffeeOrder
+    public class StardustOrder
     {
         [Prompt("What kind of {&} would you like? {||}")]
         public CoffeeOptions? Coffee;
@@ -85,7 +85,7 @@ namespace StardustBot
 
         public static IForm<JObject> BuildJsonForm()
         {
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("MiniHack.BotApplication.CoffeeBot.json"))
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("StardustBot.json"))
             {
                 var schema = JObject.Parse(new StreamReader(stream).ReadToEnd());
                 return new FormBuilderJson(schema)
@@ -94,21 +94,21 @@ namespace StardustBot
             }
         }
 
-        private static ConcurrentDictionary<CultureInfo, IForm<CoffeeOrder>> _forms = new ConcurrentDictionary<CultureInfo, IForm<CoffeeOrder>>();
+        private static ConcurrentDictionary<CultureInfo, IForm<StardustOrder>> _forms = new ConcurrentDictionary<CultureInfo, IForm<StardustOrder>>();
 
-        public static IForm<CoffeeOrder> BuildLocalizedForm()
+        public static IForm<StardustOrder> BuildLocalizedForm()
         {
             var culture = Thread.CurrentThread.CurrentUICulture;
-            IForm<CoffeeOrder> form;
+            IForm<StardustOrder> form;
 
             if (!_forms.TryGetValue(culture, out form))
             {
-                OnCompletionAsyncDelegate<CoffeeOrder> processOrder = async (context, state) =>
+                OnCompletionAsyncDelegate<StardustOrder> processOrder = async (context, state) =>
                 {
                     await context.PostAsync(DynamicStardust.Processing);
                 };
 
-                var builder = new FormBuilder<CoffeeOrder>()
+                var builder = new FormBuilder<StardustOrder>()
                         .Message(DynamicStardust.WelcomeMessage)
                         .Field(nameof(Coffee))
                         .Field(nameof(Temperature))

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MiniHack.BotApplication.Resource {
+namespace StardustBot.Resource {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace MiniHack.BotApplication.Resource {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MiniHack.BotApplication.Resource.DynamicStardust", typeof(DynamicStardust).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StardustBot.Resource.DynamicStardust", typeof(DynamicStardust).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

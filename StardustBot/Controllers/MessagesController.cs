@@ -45,9 +45,9 @@ namespace StardustBot
 
         }
 
-        internal static IDialog<CoffeeOrder> MakeRootDialog()
+        internal static IDialog<StardustOrder> MakeRootDialog()
         {
-            return Chain.From(() => FormDialog.FromForm(CoffeeOrder.BuildLocalizedForm))
+            return Chain.From(() => FormDialog.FromForm(StardustOrder.BuildLocalizedForm))
             .Do(async (context, order) =>
                {
                    try
@@ -56,7 +56,7 @@ namespace StardustBot
                        // Actually process the coffee order...
                        await context.PostAsync("Processed your order!");
                    }
-                   catch (FormCanceledException<CoffeeOrder> e)
+                   catch (FormCanceledException<StardustOrder> e)
                    {
                        string reply;
                        if (e.InnerException == null)
@@ -76,7 +76,7 @@ namespace StardustBot
 
         internal static IDialog<JObject> MakeJsonRootDialog()
         {
-            return Chain.From(() => FormDialog.FromForm(CoffeeOrder.BuildJsonForm))
+            return Chain.From(() => FormDialog.FromForm(StardustOrder.BuildJsonForm))
                 .Do(async (context, order) =>
                 {
                     try

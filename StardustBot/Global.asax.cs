@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace MiniHack.BotApplication
+namespace StardustBot
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
